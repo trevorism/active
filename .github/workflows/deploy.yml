@@ -14,7 +14,7 @@ jobs:
     needs: [call-build, call-accept-before]
     with:
       gcp_project: 'trevorism-project'
-      gcp_project_id: '51970111147/'
+      gcp_project_id: '51970111147'
       version: '0-0-1'
     secrets:
       CLIENT_ID: ${{ secrets.CLIENT_ID }}

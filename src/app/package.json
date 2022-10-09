@@ -19,6 +19,8 @@
     "@vue/test-utils": "^2.1.0",
     "axios": "^1.1.2",
     "jsdom": "^20.0.1",
+    "unplugin-vue-components": "^0.22.8",
+    "vant": "^3.6.4",
     "vite": "^3.1.0",
     "vitest": "^0.24.0"
   }
