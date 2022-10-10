@@ -29,7 +29,7 @@ export default {
       <van-row>
         <van-col span="6" class="tableCell">{{ item.name }} </van-col>
         <van-col span="6" class="tableCell">{{ item.url }} </van-col>
-        <van-col span="6" class="tableCell"><a href="{{ item.github }}">{{ item.name }}</a> </van-col>
+        <van-col span="6" class="tableCell"><a v-bind:href="item.github">{{ item.name }}</a> </van-col>
         <van-col span="6" class="tableCellLast"><img v-bind:src="item.statusUrl"/></van-col>
       </van-row>
     </div>
