@@ -10,9 +10,15 @@ export default {
   },
 
   mounted() {
-    axios.get('api/active/library').then(response =>
-        this.libraries = response.data
-    )
+    axios.get('api/active/library').then(response => {
+      this.libraries = response.data
+      this.libraries.forEach(x => {
+        let url = 'api/active/library/' + x.name + '/version'
+        axios.get(url).then(y => {
+          x.versionNumber = y.data
+        })
+      })
+    })
   }
 }
 </script>
@@ -28,7 +34,7 @@ export default {
     <div v-for="item in libraries">
       <van-row>
         <van-col span="6" class="tableCell">{{ item.name }}</van-col>
-        <van-col span="6" class="tableCell"><a v-bind:href="item.version">{{item.version}}</a></van-col>
+        <van-col span="6" class="tableCell"><a v-bind:href="item.version">{{item.versionNumber}}</a></van-col>
         <van-col span="6" class="tableCell"><a v-bind:href="item.github">{{ item.name }}</a></van-col>
         <van-col span="6" class="tableCellLast"><img v-bind:src="item.statusUrl"/></van-col>
       </van-row>
