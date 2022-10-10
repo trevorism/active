@@ -16,7 +16,7 @@ export default {
         let url = 'api/active/service/' + x.name
         axios.get(url).then(y => {
           let dns = y.data.dns
-          if(dns === x.name || x.name === "homepage")
+          if(dns === x.name || x.name === "homepage" || x.name === "auth-provider" || x.name === "push-button")
             x.url = 'https://' + dns + '.trevorism.com'
           else
             x.url = 'https://' + x.name + '.' + dns + '.trevorism.com'
