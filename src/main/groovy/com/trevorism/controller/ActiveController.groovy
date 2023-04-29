@@ -1,21 +1,21 @@
-package com.trevorism.gcloud.webapi.controller
+package com.trevorism.controller
 
 import com.google.gson.Gson
-import com.trevorism.gcloud.webapi.model.ActiveLibrary
-import com.trevorism.gcloud.webapi.model.ActiveWebapp
-import com.trevorism.gcloud.webapi.model.ListData
-import com.trevorism.gcloud.webapi.model.TrevorismProject
+import com.trevorism.model.ActiveLibrary
+import com.trevorism.model.ActiveWebapp
+import com.trevorism.model.ListData
+import com.trevorism.model.TrevorismProject
 import com.trevorism.https.DefaultSecureHttpClient
 import com.trevorism.https.SecureHttpClient
-import io.swagger.annotations.ApiOperation
 
-import javax.ws.rs.GET
-import javax.ws.rs.Path
-import javax.ws.rs.PathParam
-import javax.ws.rs.Produces
-import javax.ws.rs.core.MediaType
+import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Get
+import io.swagger.v3.oas.annotations.Operation
+import io.swagger.v3.oas.annotations.tags.Tag
 
-@Path("active")
+
+@Controller("/api/active")
 class ActiveController {
 
     private static final String ACTIVE_SERVICE_URL = "https://list.data.trevorism.com/api/6553743902375936/content"
@@ -24,10 +24,9 @@ class ActiveController {
     Gson gson = new Gson()
     SecureHttpClient secureHttpClient = new DefaultSecureHttpClient()
 
-    @ApiOperation(value = "")
-    @GET
-    @Path("service")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Tag(name = "Active Operations")
+    @Operation(summary = "Gets active services in the Trevorism ecosystem")
+    @Get(value = "/service", produces = MediaType.APPLICATION_JSON)
     List<ActiveWebapp> getActiveServices() {
         String json = secureHttpClient.get(ACTIVE_SERVICE_URL)
         ListData list = gson.fromJson(json, ListData)
@@ -36,11 +35,10 @@ class ActiveController {
         }
     }
 
-    @ApiOperation(value = "")
-    @GET
-    @Path("service/{name}")
-    @Produces(MediaType.APPLICATION_JSON)
-    TrevorismProject getProjectFromService(@PathParam("name") String name) {
+    @Tag(name = "Active Operations")
+    @Operation(summary = "Gets a project from the service in the Trevorism ecosystem")
+    @Get(value = "/service/{name}", produces = MediaType.APPLICATION_JSON)
+    TrevorismProject getProjectFromService(String name) {
         try{
             String json = secureHttpClient.get("https://project.trevorism.com/project/service/$name")
             Gson gson = new Gson()
@@ -50,11 +48,9 @@ class ActiveController {
         }
     }
 
-
-    @ApiOperation(value = "")
-    @GET
-    @Path("library")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Tag(name = "Active Operations")
+    @Operation(summary = "Gets libraries in the Trevorism ecosystem")
+    @Get(value = "/library", produces = MediaType.APPLICATION_JSON)
     List<ActiveLibrary> getActiveLibs() {
         String json = secureHttpClient.get(ACTIVE_LIBRARIES_URL)
         ListData list = gson.fromJson(json, ListData)
@@ -63,11 +59,9 @@ class ActiveController {
         }
     }
 
-    @ApiOperation(value = "")
-    @GET
-    @Path("library/{name}/version")
-    @Produces(MediaType.APPLICATION_JSON)
-    String getLibraryVersion(@PathParam("name") String name) {
+    @Operation(summary = "")
+    @Get(value = "/library/{name}/version", produces = MediaType.APPLICATION_JSON)
+    String getLibraryVersion(String name) {
         String json = secureHttpClient.get("https://github.project.trevorism.com/repo/$name/release")
         return json
     }
