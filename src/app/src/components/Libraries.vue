@@ -25,19 +25,19 @@ export default {
 
 <template>
   <div className="container">
-    <van-row class="tableHeader">
-      <van-col span="6" class="tableCell">Name</van-col>
-      <van-col span="6" class="tableCell">Version</van-col>
-      <van-col span="6" class="tableCell">Github</van-col>
-      <van-col span="6" class="tableCellLast">Deploy Status</van-col>
-    </van-row>
+    <div class="grid grid-cols-4 gap-4 tableHeader">
+      <div class="tableCell">Name</div>
+      <div class="tableCell">Version</div>
+      <div class="tableCell">Github</div>
+      <div class="tableCellLast">Deploy Status</div>
+    </div>
     <div v-for="item in libraries">
-      <van-row>
-        <van-col span="6" class="tableCell">{{ item.name }}</van-col>
-        <van-col span="6" class="tableCell"><a v-bind:href="item.version">{{item.versionNumber}}</a></van-col>
-        <van-col span="6" class="tableCell"><a v-bind:href="item.github">{{ item.name }}</a></van-col>
-        <van-col span="6" class="tableCellLast"><img v-bind:src="item.statusUrl"/></van-col>
-      </van-row>
+      <div class="grid grid-cols-4 gap-4">
+        <div class="tableCell">{{ item.name }}</div>
+        <div class="tableCell"><va-chip flat v-bind:href="item.version">{{item.versionNumber}}</va-chip></div>
+        <div class="tableCell"><va-chip flat v-bind:href="item.github">{{ item.name }}</va-chip></div>
+        <div class="tableCellLast"><img v-bind:src="item.statusUrl"/></div>
+      </div>
     </div>
   </div>
 </template>
