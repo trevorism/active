@@ -21,7 +21,7 @@ describe("App.vue", () => {
     it("contains headers for each section", () => {
         const wrapper = mount(App);
 
-        expect(wrapper.text()).contains("Active Treorism Components");
+        expect(wrapper.text()).contains("Active Trevorism Components");
         expect(wrapper.text()).contains("Active Web Applications");
         expect(wrapper.text()).contains("Active Libraries");
 
