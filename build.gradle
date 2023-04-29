@@ -121,7 +121,7 @@ task runApp(type: NpmTask) {
 }
 
 task copyFrontEnd(type: Copy){
-    dependsOn("buildApp")
+    dependsOn("buildApp", "testApp")
     mustRunAfter(compileGroovy)
     from "src/app/dist"
     into "${buildDir}/resources/main/public"
