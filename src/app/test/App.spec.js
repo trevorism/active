@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import App from "./src/App.vue";
+import App from "../src/App.vue";
 
 import { describe, it, expect, vi } from "vitest";
 import axios from 'axios'

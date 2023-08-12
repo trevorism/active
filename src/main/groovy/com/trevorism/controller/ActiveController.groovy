@@ -1,11 +1,11 @@
 package com.trevorism.controller
 
 import com.google.gson.Gson
+import com.trevorism.https.AppClientSecureHttpClient
 import com.trevorism.model.ActiveLibrary
 import com.trevorism.model.ActiveWebapp
 import com.trevorism.model.ListData
 import com.trevorism.model.TrevorismProject
-import com.trevorism.https.DefaultSecureHttpClient
 import com.trevorism.https.SecureHttpClient
 
 import io.micronaut.http.MediaType
@@ -22,7 +22,7 @@ class ActiveController {
     private static final String ACTIVE_LIBRARIES_URL = "https://list.data.trevorism.com/api/6246650553040896/content"
 
     Gson gson = new Gson()
-    SecureHttpClient secureHttpClient = new DefaultSecureHttpClient()
+    SecureHttpClient secureHttpClient = new AppClientSecureHttpClient()
 
     @Tag(name = "Active Operations")
     @Operation(summary = "Gets active services in the Trevorism ecosystem")

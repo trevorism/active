@@ -29,16 +29,16 @@ export default {
 
 <template>
   <div class="container">
-    <div class="grid grid-cols-4 gap-4 tableHeader">
+    <div class="grid grid-cols-5 gap-4 tableHeader">
       <div class="tableCell">Name</div>
-      <div class="tableCell">Deploy URL</div>
+      <div class="tableCell col-span-2">Deploy URL</div>
       <div class="tableCell">Github</div>
       <div class="tableCellLast">Deploy Status</div>
     </div>
     <div v-for="item in services">
-      <div class="grid grid-cols-4 gap-4">
+      <div class="grid grid-cols-5 gap-4">
         <div class="tableCell">{{ item.name }}</div>
-        <div class="tableCell"><va-chip flat v-bind:href="item.url"> {{item.url}}</va-chip></div>
+        <div class="tableCell col-span-2"><va-chip flat v-bind:href="item.url"> {{item.url}}</va-chip></div>
         <div class="tableCell"><va-chip flat v-bind:href="item.github">{{ item.name }}</va-chip></div>
         <div class="tableCellLast"><img v-bind:src="item.statusUrl"/></div>
       </div>
