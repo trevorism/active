@@ -1,9 +1,8 @@
 <script setup>
 import MenuBar from '@trevorism/ui-header-bar'
-import SiteInfo from "./components/SiteInfo.vue";
-import Webapps from "./components/Webapps.vue";
-import Libraries from "./components/Libraries.vue";
-
+import SiteInfo from './components/SiteInfo.vue'
+import Webapps from './components/Webapps.vue'
+import Libraries from './components/Libraries.vue'
 </script>
 
 <template>
@@ -18,6 +17,4 @@ import Libraries from "./components/Libraries.vue";
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

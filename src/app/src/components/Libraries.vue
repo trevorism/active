@@ -1,8 +1,7 @@
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-
   data() {
     return {
       libraries: []
@@ -10,11 +9,11 @@ export default {
   },
 
   mounted() {
-    axios.get('api/active/library').then(response => {
+    axios.get('api/active/library').then((response) => {
       this.libraries = response.data
-      this.libraries.forEach(x => {
+      this.libraries.forEach((x) => {
         let url = 'api/active/library/' + x.name + '/version'
-        axios.get(url).then(y => {
+        axios.get(url).then((y) => {
           x.versionNumber = y.data
         })
       })
@@ -34,26 +33,30 @@ export default {
     <div v-for="item in libraries">
       <div class="grid grid-cols-4 gap-4">
         <div class="tableCell">{{ item.name }}</div>
-        <div class="tableCell"><va-chip flat v-bind:href="item.version">{{item.versionNumber}}</va-chip></div>
-        <div class="tableCell"><va-chip flat v-bind:href="item.github">{{ item.name }}</va-chip></div>
-        <div class="tableCellLast"><img v-bind:src="item.statusUrl"/></div>
+        <div class="tableCell">
+          <va-chip flat v-bind:href="item.version">{{ item.versionNumber }}</va-chip>
+        </div>
+        <div class="tableCell">
+          <va-chip flat v-bind:href="item.github">{{ item.name }}</va-chip>
+        </div>
+        <div class="tableCellLast"><img v-bind:src="item.statusUrl" /></div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.tableHeader{
+.tableHeader {
   font-weight: bold;
 }
-.tableCell{
+.tableCell {
   border-right: 1px gray solid;
   border-bottom: 1px gray solid;
   white-space: nowrap;
   overflow: hidden;
   padding: 2px;
 }
-.tableCellLast{
+.tableCellLast {
   padding: 2px;
   border-bottom: 1px gray solid;
 }

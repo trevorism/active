@@ -1,8 +1,7 @@
 <script>
-import axios from "axios";
+import axios from 'axios'
 
 export default {
-
   data() {
     return {
       services: []
@@ -10,16 +9,15 @@ export default {
   },
 
   mounted() {
-    axios.get('api/active/service').then(response => {
+    axios.get('api/active/service').then((response) => {
       this.services = response.data
-      this.services.forEach(x => {
+      this.services.forEach((x) => {
         let url = 'api/active/service/' + x.name
-        axios.get(url).then(y => {
+        axios.get(url).then((y) => {
           let dns = y.data.dns
-          if(dns === x.name || x.name === "homepage" || x.name === "auth-provider" || x.name === "push-button")
+          if (dns === x.name || x.name === 'homepage' || x.name === 'auth-provider' || x.name === 'push-button')
             x.url = 'https://' + dns + '.trevorism.com'
-          else
-            x.url = 'https://' + x.name + '.' + dns + '.trevorism.com'
+          else x.url = 'https://' + x.name + '.' + dns + '.trevorism.com'
         })
       })
     })
@@ -38,9 +36,13 @@ export default {
     <div v-for="item in services">
       <div class="grid grid-cols-5 gap-4">
         <div class="tableCell">{{ item.name }}</div>
-        <div class="tableCell col-span-2"><va-chip flat v-bind:href="item.url"> {{item.url}}</va-chip></div>
-        <div class="tableCell"><va-chip flat v-bind:href="item.github">{{ item.name }}</va-chip></div>
-        <div class="tableCellLast"><img v-bind:src="item.statusUrl"/></div>
+        <div class="tableCell col-span-2">
+          <va-chip flat v-bind:href="item.url"> {{ item.url }}</va-chip>
+        </div>
+        <div class="tableCell">
+          <va-chip flat v-bind:href="item.github">{{ item.name }}</va-chip>
+        </div>
+        <div class="tableCellLast"><img v-bind:src="item.statusUrl" /></div>
       </div>
     </div>
   </div>
@@ -63,5 +65,4 @@ export default {
   padding: 2px;
   border-bottom: 1px gray solid;
 }
-
 </style>
