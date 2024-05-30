@@ -9,8 +9,6 @@ vi.mock('axios')
 
 describe("Libraries.vue", () => {
 
-
-
     it("should render the headers", () => {
         axios.get.mockResolvedValue({ data: [] })
         const wrapper = mount(Libraries);
