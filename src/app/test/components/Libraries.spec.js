@@ -3,7 +3,6 @@ import Libraries from "/src/components/Libraries.vue";
 
 import { describe, it, expect, vi } from "vitest";
 import axios from 'axios'
-import {nextTick} from "vue";
 
 vi.mock('axios')
 
