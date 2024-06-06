@@ -1,5 +1,5 @@
 <script setup>
-import MenuBar from '@trevorism/ui-header-bar'
+import MenuBar from "@trevorism/ui-header-bar"
 import SiteInfo from './components/SiteInfo.vue'
 import Webapps from './components/Webapps.vue'
 import Libraries from './components/Libraries.vue'
