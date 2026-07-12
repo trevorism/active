@@ -17,14 +17,14 @@ buildscript {
     }
     dependencies {
         classpath 'com.google.cloud.tools:appengine-gradle-plugin:2.8.7'
-        classpath 'com.trevorism:gradle-acceptance-plugin:2.8.2'
+        classpath 'com.trevorism:gradle-acceptance-plugin:3.0.0'
     }
 }
 
 plugins {
     id("groovy")
     id("com.gradleup.shadow") version "9.4.1"
-    id("io.micronaut.application") version "5.0.0"
+    id("io.micronaut.application") version "5.0.2"
     id("com.github.node-gradle.node") version "7.1.0"
     id("jacoco")
 }
@@ -60,7 +60,7 @@ dependencies {
 
     runtimeOnly("ch.qos.logback:logback-classic")
 
-    implementation 'com.trevorism:micronaut-security-utils:2.3.3'
+    implementation 'com.trevorism:micronaut-security-utils:3.0.0'
     implementation 'com.trevorism:secure-http-utils:3.2.1'
     implementation 'com.google.code.gson:gson:2.14.0'
 
@@ -93,7 +93,7 @@ appengine {
         projectId = "trevorism-project"
         stopPreviousVersion = true
         promote = true
-        version = "0-6-0"
+        version = "0-7-0"
     }
 }
 
@@ -150,4 +150,5 @@ buildLayers.dependsOn("copyFrontEnd")
 shadowJar.dependsOn("copyFrontEnd")
 compileTestGroovy.mustRunAfter('copyFrontEnd')
 compileAcceptanceGroovy.mustRunAfter('copyFrontEnd')
+check.dependsOn testApp
 build.dependsOn jacocoTestCoverageVerification

@@ -1,4 +1,6 @@
-# Changelog
+## 0.7.0
+
+Update micronaut to 5.0.2, update dependencies.
 
 ## 0.6.0
 - Upgraded Micronaut from 4.5.4 to 5.0.0
