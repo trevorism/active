@@ -1,3 +1,7 @@
+## 0.8.0
+
+Fix whitescreen on deploy issue, upgrade to micronaut 5.0.5
+
 ## 0.7.0
 
 Update micronaut to 5.0.2, update dependencies.
