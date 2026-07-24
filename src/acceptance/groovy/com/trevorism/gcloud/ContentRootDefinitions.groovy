@@ -6,25 +6,27 @@ import io.cucumber.groovy.Hooks
 this.metaClass.mixin(Hooks)
 this.metaClass.mixin(EN)
 
+String baseUrl = System.getenv("ACCEPTANCE_BASE_URL") ?: "https://active.project.trevorism.com"
+
 def contextRootContent
 def pingContent
 
 Given(~/^the application is alive$/) { ->
     try{
-        new URL("https://active.project.trevorism.com/api/ping").text
+        new URL("${baseUrl}/api/ping").text
     }
     catch (Exception ignored){
         Thread.sleep(10000)
-        new URL("https://active.project.trevorism.com/api/ping").text
+        new URL("${baseUrl}/api/ping").text
     }
 }
 
 When(~/^I navigate to "([^"]*)"$/) { String url ->
-    contextRootContent = new URL(url).text
+    contextRootContent = new URL(baseUrl).text
 }
 
 When(~/^I navigate to \/ping on "([^"]*)"$/) { String url ->
-    pingContent = new URL("${url}/ping").text
+    pingContent = new URL("${baseUrl}/ping").text
 }
 
 Then(~/^then a link to the help page is displayed$/) { ->
