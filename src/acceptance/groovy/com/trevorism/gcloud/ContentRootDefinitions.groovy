@@ -22,11 +22,11 @@ Given(~/^the application is alive$/) { ->
 }
 
 When(~/^I navigate to "([^"]*)"$/) { String url ->
-    contextRootContent = new URL(baseUrl).text
+    contextRootContent = new URL("${baseUrl}/api").text
 }
 
 When(~/^I navigate to \/ping on "([^"]*)"$/) { String url ->
-    pingContent = new URL("${baseUrl}/ping").text
+    pingContent = new URL("${baseUrl}/api/ping").text
 }
 
 Then(~/^then a link to the help page is displayed$/) { ->
