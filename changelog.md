@@ -1,3 +1,7 @@
+## 0.9.0
+
+Update to versioning plugin
+
 ## 0.8.0
 
 Fix whitescreen on deploy issue, upgrade to micronaut 5.0.5
