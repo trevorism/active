@@ -18,8 +18,8 @@ import io.swagger.v3.oas.annotations.tags.Tag
 @Controller("/api/active")
 class ActiveController {
 
-    private static final String ACTIVE_SERVICE_URL = "https://list.data.trevorism.com/api/6553743902375936/content"
-    private static final String ACTIVE_LIBRARIES_URL = "https://list.data.trevorism.com/api/6246650553040896/content"
+    private static final String ACTIVE_SERVICE_URL = "https://list.data.trevorism.com/object/6553743902375936/content"
+    private static final String ACTIVE_LIBRARIES_URL = "https://list.data.trevorism.com/object/6246650553040896/content"
 
     Gson gson = new Gson()
     SecureHttpClient secureHttpClient = new AppClientSecureHttpClient()

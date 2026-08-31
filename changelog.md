@@ -1,3 +1,7 @@
+## 0.9.1
+
+Point to the new list endpoints.
+
 ## 0.9.0
 
 Update to versioning plugin
