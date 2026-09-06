@@ -1,4 +1,4 @@
-## 0.10.0
+## 1.0.0
 
 Serve the shared auth routes so the header bar can sign people in and out here.
 The listings themselves stay open to anyone, as they always were.
