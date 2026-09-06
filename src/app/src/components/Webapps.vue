@@ -9,10 +9,10 @@ export default {
   },
 
   mounted() {
-    axios.get('api/active/service').then((response) => {
+    axios.get('/api/active/service').then((response) => {
       this.services = response.data
       this.services.forEach((x) => {
-        let url = 'api/active/service/' + x.name
+        let url = '/api/active/service/' + x.name
         axios.get(url).then((y) => {
           let dns = y.data.dns
           if (dns === x.name || x.name === 'homepage' || x.name === 'auth-provider' || x.name === 'push-button')

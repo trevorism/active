@@ -17,7 +17,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.google.cloud.tools:appengine-gradle-plugin:2.8.7'
-        classpath 'com.trevorism:gradle-acceptance-plugin:3.0.0'
+        classpath 'com.trevorism:gradle-acceptance-plugin:3.0.2'
         classpath 'com.trevorism:gradle-trevorism-versioning-plugin:1.0.0'
     }
 }
@@ -64,6 +64,7 @@ dependencies {
 
     implementation 'com.trevorism:micronaut-security-utils:3.2.0'
     implementation 'com.trevorism:secure-http-utils:3.3.0'
+    implementation 'com.trevorism:micronaut-ui-auth:1.1.0'
     implementation 'com.google.code.gson:gson:2.14.0'
 
     testImplementation 'com.trevorism:test-result-events:0.3.0'

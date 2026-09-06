@@ -1,3 +1,8 @@
+## 1.0.0
+
+Serve the shared auth routes so the header bar can sign people in and out here.
+The listings themselves stay open to anyone, as they always were.
+
 ## 0.9.1
 
 Point to the new list endpoints.
