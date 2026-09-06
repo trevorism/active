@@ -64,6 +64,7 @@ dependencies {
 
     implementation 'com.trevorism:micronaut-security-utils:3.2.0'
     implementation 'com.trevorism:secure-http-utils:3.3.0'
+    implementation 'com.trevorism:micronaut-ui-auth:1.1.0'
     implementation 'com.google.code.gson:gson:2.14.0'
 
     testImplementation 'com.trevorism:test-result-events:0.3.0'

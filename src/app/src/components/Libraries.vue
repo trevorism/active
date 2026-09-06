@@ -9,10 +9,10 @@ export default {
   },
 
   mounted() {
-    axios.get('api/active/library').then((response) => {
+    axios.get('/api/active/library').then((response) => {
       this.libraries = response.data
       this.libraries.forEach((x) => {
-        let url = 'api/active/library/' + x.name + '/version'
+        let url = '/api/active/library/' + x.name + '/version'
         axios.get(url).then((y) => {
           x.versionNumber = y.data
         })

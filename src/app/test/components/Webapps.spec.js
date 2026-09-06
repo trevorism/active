@@ -22,9 +22,9 @@ describe("Webapps.vue", () => {
     it("should render the webapp", async () => {
         axios.get.mockImplementation((url) => {
             switch (url) {
-                case 'api/active/service':
+                case '/api/active/service':
                     return Promise.resolve({data: [{name: 'test', url:'', github: 'https://github.com/trevorism/test', statusUrl:'x.svg'}]})
-                case 'api/active/service/test':
+                case '/api/active/service/test':
                     return Promise.resolve({data: {name:"test", dns: "unit.test"}});
                 default:
                     return Promise.reject(new Error('not found'))

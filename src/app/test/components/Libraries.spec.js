@@ -21,9 +21,9 @@ describe("Libraries.vue", () => {
     it("should render the library", async () => {
         axios.get.mockImplementation((url) => {
             switch (url) {
-                case 'api/active/library':
+                case '/api/active/library':
                     return Promise.resolve({data: [{name: 'test', github: 'https://github.com/trevorism/test', statusUrl:'x.svg'}]})
-                case 'api/active/library/test/version':
+                case '/api/active/library/test/version':
                     return Promise.resolve({data: "20.0.0"})
                 default:
                     return Promise.reject(new Error('not found'))
